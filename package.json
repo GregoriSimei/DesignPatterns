@@ -4,7 +4,8 @@
   "description": "I created this directory to put all my studies about design patterns.\r My objective is to learn all designs of GOF, GRASP and SOLID",
   "main": "index.js",
   "scripts": {
-    "dev:gof:observer": "tsnd patterns/GOF/behavior/observer/index.ts"
+    "dev:gof:observer": "tsnd patterns/GOF/behavior/observer/index.ts",
+    "dev:gof:singleton": "tsnd patterns/GOF/creational/singleton/index.ts"
   },
   "author": "",
   "license": "ISC",
