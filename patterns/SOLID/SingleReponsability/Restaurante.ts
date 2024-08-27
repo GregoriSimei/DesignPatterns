@@ -1,23 +1,23 @@
-import { Cozinheiro } from "./Cozinheiro";
-import { Faxineira } from "./Faxineira";
-import { Garcom } from "./Garcom";
+import { Chef } from "./Chef";
+import { Cleaner } from "./Cleaner";
+import { Waiter } from "./Waiter";
 
-class Restaurante {
+class Restaurant {
     constructor(
-        protected cozinheiro: Cozinheiro = new Cozinheiro(),
-        protected garcom: Garcom = new Garcom(),
-        protected faxineira: Faxineira = new Faxineira()
+        protected chef: Chef = new Chef(),
+        protected waiter: Waiter = new Waiter(),
+        protected cleaner: Cleaner= new Cleaner()
     ) {}
   
-    iniciar() {
-      this.garcom.organizarMesas();
-      this.cozinheiro.cozinharPratoPrincipal();
-      this.garcom.anotarPedido();
-      this.faxineira.limpar();
-      this.cozinheiro.prepararSobremesa();
-      this.garcom.servirBebidas();
+    start() {
+      this.waiter.organizeTables();
+      this.chef.cookingMainCourse();
+      this.waiter.takeOrder();
+      this.cleaner.clean();
+      this.chef.prepareDessert();
+      this.waiter.serveDrinks();
     }
 }
   
-  const restaurante = new Restaurante();
-  restaurante.iniciar();
+  const restaurant = new Restaurant();
+  restaurant.start();
