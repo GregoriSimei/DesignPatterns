@@ -1,34 +1,23 @@
+import { Cozinheiro } from "./Cozinheiro";
+import { Faxineira } from "./Faxineira";
+import { Garcom } from "./Garcom";
+
 class Restaurante {
-    constructor() {}
+    constructor(
+        protected cozinheiro: Cozinheiro = new Cozinheiro(),
+        protected garcom: Garcom = new Garcom(),
+        protected faxineira: Faxineira = new Faxineira()
+    ) {}
   
     iniciar() {
-      this.organizarMesas();
-      this.cozinharPratoPrincipal();
-      this.anotarPedido();
-      this.limpar();
-      this.prepararSobremesa();
-      this.servirBebidas();
+      this.garcom.organizarMesas();
+      this.cozinheiro.cozinharPratoPrincipal();
+      this.garcom.anotarPedido();
+      this.faxineira.limpar();
+      this.cozinheiro.prepararSobremesa();
+      this.garcom.servirBebidas();
     }
-  
-    organizarMesas() {
-      console.log("Organizando as mesas...");
-    }
-    cozinharPratoPrincipal() {
-      console.log("Preparando o prato principal");
-    }
-    anotarPedido() {
-      console.log("Anotando o pedido...");
-    }
-    limpar() {
-      console.log("Limpando o local...");
-    }
-    prepararSobremesa() {
-      console.log("Fazendo as sobremesas...");
-    }
-    servirBebidas() {
-      console.log("Servindo as bebidas...");
-    }
-  }
+}
   
   const restaurante = new Restaurante();
   restaurante.iniciar();
