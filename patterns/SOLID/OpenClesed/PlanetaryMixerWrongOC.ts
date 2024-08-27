@@ -1,8 +1,7 @@
+type BeaterWrong = "globe" | "fan" | "hook";
 
-type Beater = "globe" | "fan" | "hook";
-
-class PlanetaryMixer {
-  constructor(public beater: Beater) {}
+class PlanetaryMixerWrong {
+  constructor(public beater: BeaterWrong) {}
 
   mix() {
     if (this.beater === "globe") {
@@ -18,5 +17,5 @@ class PlanetaryMixer {
     }
   }
 }
-const mixer = new PlanetaryMixer("globe");
+const mixer = new PlanetaryMixerWrong("globe");
 console.log(mixer.mix());
