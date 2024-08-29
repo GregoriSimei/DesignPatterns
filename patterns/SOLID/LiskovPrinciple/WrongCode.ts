@@ -1,5 +1,5 @@
 
-abstract class Employee {
+abstract class EmployeeWrong {
     name: string;
     workLoad: number;
     salary: number;
@@ -15,7 +15,7 @@ abstract class Employee {
     abstract calculatesProfitSharing(lucro: number): number;
 }
 
-class EffectiveEmployee extends Employee {
+class EffectiveEmployeeWrong extends EmployeeWrong {
     constructor(name: string, workLoad: number, salary: number) {
         super(name, workLoad, salary);
     }
@@ -34,10 +34,10 @@ class EffectiveEmployee extends Employee {
     }
 }
 
-class EmployeeVoluntario extends Employee {
-    advisor: Employee;
+class VolunteerEmployeeWrong extends EmployeeWrong {
+    advisor: EmployeeWrong;
 
-    constructor(name: string, workLoadExtensao: number, funciarioEfetivo: Employee) {
+    constructor(name: string, workLoadExtensao: number, funciarioEfetivo: EmployeeWrong) {
         super(name, workLoadExtensao, null as unknown as number);
         this.advisor = funciarioEfetivo;
     }
@@ -59,17 +59,17 @@ class EmployeeVoluntario extends Employee {
     }
 }
 
-const effectiveEmployee: Employee = new EffectiveEmployee("João", 40, 2400);
-const volunteerWorker: Employee = new EmployeeVoluntario("Enzo", 20, effectiveEmployee);
+const effectiveEmployeeWrong: EmployeeWrong = new EffectiveEmployeeWrong("João", 40, 2400);
+const volunteerEmployeeWrong: EmployeeWrong = new VolunteerEmployeeWrong("Enzo", 20, effectiveEmployeeWrong);
 
 //Efetivo
-console.log("name:", effectiveEmployee.name);
-console.log("gross salary:", effectiveEmployee.salary);
-console.log("net salary:", effectiveEmployee.calculateNetSalary());
-console.log("salary with profit sharing:", effectiveEmployee.calculatesProfitSharing(2.5), "\n");
+console.log("name:", effectiveEmployeeWrong.name);
+console.log("gross salary:", effectiveEmployeeWrong.salary);
+console.log("net salary:", effectiveEmployeeWrong.calculateNetSalary());
+console.log("salary with profit sharing:", effectiveEmployeeWrong.calculatesProfitSharing(2.5), "\n");
 
 //Voluntário
-console.log("name:", volunteerWorker.name);
-console.log("gross salary:", volunteerWorker.salary);
-console.log("net salary:", volunteerWorker.calculateNetSalary());
-console.log("salary with profit sharing:", volunteerWorker.calculatesProfitSharing(2.5)); 
+console.log("name:", volunteerEmployeeWrong.name);
+console.log("gross salary:", volunteerEmployeeWrong.salary);
+console.log("net salary:", volunteerEmployeeWrong.calculateNetSalary());
+console.log("salary with profit sharing:", volunteerEmployeeWrong.calculatesProfitSharing(2.5)); 
