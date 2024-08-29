@@ -1,10 +1,13 @@
 
-interface ChefWrong {
-    maketheMainCourse(): string;
-    makeDessert(): string;
+interface FoodCook {
+    maketheMainCourse(): string
+}
+
+interface DessertCook {
+    makeDessert(): string
 }
   
-class MasterChefWrong implements ChefWrong {
+class MasterChef implements FoodCook, DessertCook {
     maketheMainCourse(): string {
         return "Grilled salmon in Sicilian lemon sauce with fresh herb risotto";
     }
@@ -12,10 +15,7 @@ class MasterChefWrong implements ChefWrong {
         return "Red fruit tiramisu with raspberry sauce";
     }
 }
-class DessertChefWrong implements ChefWrong {
-    maketheMainCourse(): string {
-        throw new Error("I only make sweet dishes");
-    }
+class DessertChef implements DessertCook {
     makeDessert(): string {
         return "Bowl of strawberries with whipped cream and almond crunch";
     }
